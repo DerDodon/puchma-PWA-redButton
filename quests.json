@@ -1,0 +1,107 @@
+[
+  {
+    "id": "water1",
+    "text": "Trink ein Glas Wasser",
+    "emoji": "💧",
+    "xp": 10,
+    "category": "health"
+  },
+  {
+    "id": "water2",
+    "text": "Noch ein Glas Wasser",
+    "emoji": "💧",
+    "xp": 10,
+    "category": "health"
+  },
+  {
+    "id": "water3",
+    "text": "Drittes Glas Wasser – fast 1L!",
+    "emoji": "💧",
+    "xp": 15,
+    "category": "health"
+  },
+  {
+    "id": "outside",
+    "text": "Geh 5 Minuten an die frische Luft",
+    "emoji": "🌿",
+    "xp": 20,
+    "category": "move"
+  },
+  {
+    "id": "stretch",
+    "text": "Streck dich kurz durch",
+    "emoji": "🧘",
+    "xp": 15,
+    "category": "move"
+  },
+  {
+    "id": "steps",
+    "text": "Mach 500 Schritte",
+    "emoji": "👟",
+    "xp": 25,
+    "category": "move"
+  },
+  {
+    "id": "read",
+    "text": "Lies 10 Minuten etwas",
+    "emoji": "📖",
+    "xp": 20,
+    "category": "mind"
+  },
+  {
+    "id": "nophone",
+    "text": "30 Min kein Handy",
+    "emoji": "📵",
+    "xp": 30,
+    "category": "mind"
+  },
+  {
+    "id": "grateful",
+    "text": "Denk an 1 Sache, die gut lief",
+    "emoji": "🙏",
+    "xp": 15,
+    "category": "mind"
+  },
+  {
+    "id": "breakfast",
+    "text": "Iss ein richtiges Frühstück",
+    "emoji": "🥣",
+    "xp": 20,
+    "category": "health"
+  },
+  {
+    "id": "fruit",
+    "text": "Iss ein Stück Obst oder Gemüse",
+    "emoji": "🍎",
+    "xp": 15,
+    "category": "health"
+  },
+  {
+    "id": "nice",
+    "text": "Sag jemandem etwas Nettes",
+    "emoji": "💛",
+    "xp": 20,
+    "category": "social"
+  },
+  {
+    "id": "smile",
+    "text": "Lächle eine fremde Person an",
+    "emoji": "😊",
+    "xp": 15,
+    "category": "social"
+  },
+  {
+    "id": "tidy",
+    "text": "Räum eine kleine Sache auf",
+    "emoji": "🧹",
+    "xp": 10,
+    "category": "focus"
+  },
+  {
+    "id": "todo",
+    "text": "Schreib 3 Dinge auf, die du heute erledigst",
+    "emoji": "✅",
+    "xp": 15,
+    "category": "focus"
+  }
+]
