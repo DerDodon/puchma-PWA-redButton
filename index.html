@@ -1,1 +1,131 @@
-leck
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="description" content="Erledige täglich zufällige Aufgaben und baue deinen Streak auf!" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Quests" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Daily Quests</title>
+</head>
+<body>
+
+<!-- INSTALL BANNER – poppt von oben rein -->
+<div id="installBanner" class="install-banner hidden">
+  <div class="ib-inner">
+    <div class="ib-left">
+      <span class="ib-icon">⚡</span>
+      <div>
+        <div class="ib-title">App installieren</div>
+        <div class="ib-sub">Offline · Kein Browser nötig · Homescreen</div>
+      </div>
+    </div>
+    <div class="ib-actions">
+      <button id="installBtn" class="ib-btn-yes" type="button">Installieren</button>
+      <button id="installDismiss" class="ib-btn-no" type="button" aria-label="Schließen">✕</button>
+    </div>
+  </div>
+</div>
+
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<div id="app">
+
+  <header class="header">
+    <div class="header-top">
+      <div class="logo">
+        <div class="logo-mark" aria-hidden="true"><span class="logo-bolt">⚡</span></div>
+        <div class="logo-text">
+          <span class="logo-name">Daily Quests</span>
+          <span class="logo-date" id="dateTxt">Heute</span>
+        </div>
+      </div>
+      <div class="stat-pill streak-pill" id="streakPill">
+        <span class="stat-icon">🔥</span>
+        <span id="streakNum">0</span>
+        <span class="stat-label">Streak</span>
+      </div>
+    </div>
+
+    <div class="xp-section">
+      <div class="xp-meta">
+        <span class="xp-level" id="levelTxt">Level 1</span>
+        <span class="xp-count"><span id="xpNum">0</span> / 100 XP</span>
+      </div>
+      <div class="xp-track" role="progressbar" aria-label="XP Fortschritt">
+        <div class="xp-fill" id="xpFill" style="width:0%"></div>
+        <div class="xp-glow" id="xpGlow" style="left:0%"></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="motivation-strip">
+    <span class="motivation-quote" id="motivationQuote">Lade...</span>
+  </div>
+
+  <div class="progress-row">
+    <span class="progress-label" id="progressTxt">0 / 5 heute erledigt</span>
+    <div class="progress-dots" id="progressDots"></div>
+  </div>
+
+  <main class="quest-list" id="questList" aria-label="Heutige Aufgaben"></main>
+
+  <div class="all-done" id="allDone">
+    <div class="all-done-inner">
+      <div class="all-done-emoji">🏆</div>
+      <div class="all-done-title">Alle erledigt!</div>
+      <div class="all-done-sub">Komm morgen für neue Quests wieder.</div>
+    </div>
+  </div>
+
+  <div class="best-streak-card">
+    <span class="bs-label">Beste Streak</span>
+    <span class="bs-val" id="bestStreakNum">0</span>
+    <span class="bs-icon">🏅</span>
+  </div>
+
+  <footer class="footer">
+    <span id="totalDoneTxt">0 Aufgaben total erledigt</span>
+  </footer>
+
+</div>
+
+<!-- QUEST DETAIL MODAL -->
+<div class="modal-bg" id="modalBg">
+  <div class="modal" id="modal" role="dialog" aria-modal="true">
+    <div class="modal-emoji" id="modalEmoji">🎯</div>
+    <div class="modal-title" id="modalTitle">Aufgabe</div>
+    <div class="modal-tip" id="modalTip">Tipp hier</div>
+    <div class="modal-xp" id="modalXp">+10 XP</div>
+    <div class="modal-btns">
+      <button class="modal-btn-done" id="modalBtnDone" type="button">✓ Erledigt!</button>
+      <button class="modal-btn-close" id="modalBtnClose" type="button">Später</button>
+    </div>
+  </div>
+</div>
+
+<!-- LEVEL UP -->
+<div class="levelup-overlay" id="levelup">
+  <div class="levelup-box">
+    <div class="lu-rays" aria-hidden="true"></div>
+    <div class="lu-icon">⚡</div>
+    <div class="lu-title">LEVEL UP</div>
+    <div class="lu-level" id="luLevel">Level 2</div>
+    <button class="lu-btn" id="luBtn" type="button">Weiter →</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

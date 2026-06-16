@@ -1,107 +1,202 @@
 [
   {
-    "id": "water1",
-    "text": "Trink ein Glas Wasser",
+    "id": 1,
+    "text": "Trink heute mindestens 1,5 Liter Wasser",
     "emoji": "💧",
-    "xp": 10,
-    "category": "health"
-  },
-  {
-    "id": "water2",
-    "text": "Noch ein Glas Wasser",
-    "emoji": "💧",
-    "xp": 10,
-    "category": "health"
-  },
-  {
-    "id": "water3",
-    "text": "Drittes Glas Wasser – fast 1L!",
-    "emoji": "💧",
-    "xp": 15,
-    "category": "health"
-  },
-  {
-    "id": "outside",
-    "text": "Geh 5 Minuten an die frische Luft",
-    "emoji": "🌿",
     "xp": 20,
-    "category": "move"
+    "category": "health",
+    "tip": "Stell dir eine Flasche auf den Tisch – aus den Augen, aus dem Sinn funktioniert hier andersrum."
   },
   {
-    "id": "stretch",
-    "text": "Streck dich kurz durch",
+    "id": 2,
+    "text": "Geh mindestens 10 Minuten an die frische Luft",
+    "emoji": "🌿",
+    "xp": 25,
+    "category": "move",
+    "tip": "Balkon zählt nicht – wirklich raus gehen. Auch wenn's kurz ist, der Kopf dankt es dir."
+  },
+  {
+    "id": 3,
+    "text": "Mach 3 Minuten Dehnung oder Stretching",
     "emoji": "🧘",
     "xp": 15,
-    "category": "move"
+    "category": "move",
+    "tip": "Nacken, Schultern, Rücken – einfach alles kurz durchbewegen."
   },
   {
-    "id": "steps",
-    "text": "Mach 500 Schritte",
-    "emoji": "👟",
-    "xp": 25,
-    "category": "move"
-  },
-  {
-    "id": "read",
-    "text": "Lies 10 Minuten etwas",
-    "emoji": "📖",
-    "xp": 20,
-    "category": "mind"
-  },
-  {
-    "id": "nophone",
-    "text": "30 Min kein Handy",
-    "emoji": "📵",
-    "xp": 30,
-    "category": "mind"
-  },
-  {
-    "id": "grateful",
-    "text": "Denk an 1 Sache, die gut lief",
-    "emoji": "🙏",
-    "xp": 15,
-    "category": "mind"
-  },
-  {
-    "id": "breakfast",
-    "text": "Iss ein richtiges Frühstück",
-    "emoji": "🥣",
-    "xp": 20,
-    "category": "health"
-  },
-  {
-    "id": "fruit",
-    "text": "Iss ein Stück Obst oder Gemüse",
+    "id": 4,
+    "text": "Iss heute eine Portion Obst oder Gemüse extra",
     "emoji": "🍎",
     "xp": 15,
-    "category": "health"
+    "category": "health",
+    "tip": "Eine Banane, ein Apfel, eine Gurke – irgendetwas Frisches, das du sonst weglässt."
   },
   {
-    "id": "nice",
-    "text": "Sag jemandem etwas Nettes",
+    "id": 5,
+    "text": "Lies 15 Minuten in einem echten Buch",
+    "emoji": "📖",
+    "xp": 25,
+    "category": "mind",
+    "tip": "Kein Handy, kein Tablet – ein richtiges Buch. Auch wenns nur 10 Seiten sind."
+  },
+  {
+    "id": 6,
+    "text": "Leg dein Handy 1 Stunde komplett weg",
+    "emoji": "📵",
+    "xp": 35,
+    "category": "mind",
+    "tip": "Face-down auf einen anderen Tisch oder in eine Schublade. Nicht in Reichweite = viel leichter."
+  },
+  {
+    "id": 7,
+    "text": "Mach jemandem ein ehrliches Kompliment",
     "emoji": "💛",
     "xp": 20,
-    "category": "social"
+    "category": "social",
+    "tip": "Konkret und ehrlich – nicht 'cool' sondern 'ich finde wirklich gut, dass du...'"
   },
   {
-    "id": "smile",
-    "text": "Lächle eine fremde Person an",
-    "emoji": "😊",
-    "xp": 15,
-    "category": "social"
-  },
-  {
-    "id": "tidy",
-    "text": "Räum eine kleine Sache auf",
+    "id": 8,
+    "text": "Räum deinen Schreibtisch oder dein Zimmer auf",
     "emoji": "🧹",
-    "xp": 10,
-    "category": "focus"
+    "xp": 20,
+    "category": "focus",
+    "tip": "Aufgeräumter Raum, aufgeräumter Kopf. 10 Minuten reichen für einen spürbaren Unterschied."
   },
   {
-    "id": "todo",
-    "text": "Schreib 3 Dinge auf, die du heute erledigst",
+    "id": 9,
+    "text": "Schreib 3 Dinge auf, für die du heute dankbar bist",
+    "emoji": "✏️",
+    "xp": 15,
+    "category": "mind",
+    "tip": "Wirklich aufschreiben, nicht nur denken. Kleine Dinge zählen genauso."
+  },
+  {
+    "id": 10,
+    "text": "Beweg dich 20 Minuten – egal wie",
+    "emoji": "🏃",
+    "xp": 30,
+    "category": "move",
+    "tip": "Spazieren, tanzen, Rad fahren, Stiegen steigen – Hauptsache in Bewegung."
+  },
+  {
+    "id": 11,
+    "text": "Melde dich bei jemandem, mit dem du lange nicht gesprochen hast",
+    "emoji": "📞",
+    "xp": 25,
+    "category": "social",
+    "tip": "Einfach 'Hey, wie geht's dir?' – mehr braucht es meistens nicht."
+  },
+  {
+    "id": 12,
+    "text": "Iss heute kein Fast Food oder Junk Food",
+    "emoji": "🥗",
+    "xp": 30,
+    "category": "health",
+    "tip": "Einen ganzen Tag bewusst essen. Vorbereitung ist der Trick."
+  },
+  {
+    "id": 13,
+    "text": "Lern etwas Neues – 10 Minuten reichen",
+    "emoji": "🧠",
+    "xp": 20,
+    "category": "mind",
+    "tip": "YouTube, Podcast, Artikel – irgendein Thema das dich interessiert."
+  },
+  {
+    "id": 14,
+    "text": "Schreib auf, was du heute erledigen willst – und hak es ab",
     "emoji": "✅",
     "xp": 15,
-    "category": "focus"
+    "category": "focus",
+    "tip": "Maximal 3 Dinge. Mehr führt zu Überforderung."
+  },
+  {
+    "id": 15,
+    "text": "Geh heute früher schlafen als sonst",
+    "emoji": "😴",
+    "xp": 25,
+    "category": "health",
+    "tip": "Handy ab 21 Uhr weglegen hilft enorm."
+  },
+  {
+    "id": 16,
+    "text": "Koch dir selbst eine richtige Mahlzeit",
+    "emoji": "🍳",
+    "xp": 30,
+    "category": "health",
+    "tip": "Kein Fertiggericht – wirklich etwas selbst zubereiten."
+  },
+  {
+    "id": 17,
+    "text": "Hilf jemandem mit irgendetwas",
+    "emoji": "🤝",
+    "xp": 25,
+    "category": "social",
+    "tip": "Eine Tür aufhalten, beim Tragen helfen – klein aber wirkungsvoll."
+  },
+  {
+    "id": 18,
+    "text": "Mach 5 Minuten Atemübung oder Meditation",
+    "emoji": "🌬️",
+    "xp": 20,
+    "category": "mind",
+    "tip": "4 Sekunden einatmen, 4 halten, 4 ausatmen – das beruhigt das Nervensystem."
+  },
+  {
+    "id": 19,
+    "text": "Verbringe heute 1 Stunde ohne Social Media",
+    "emoji": "🚫",
+    "xp": 30,
+    "category": "mind",
+    "tip": "Apps aus dem Homescreen entfernen hilft enorm."
+  },
+  {
+    "id": 20,
+    "text": "Tu heute etwas, das du schon lange aufgeschoben hast",
+    "emoji": "⚡",
+    "xp": 40,
+    "category": "focus",
+    "tip": "Nicht das Größte – das Nervigste. Der Erledigungseffekt danach ist das Beste am ganzen Tag."
+  },
+  {
+    "id": 21,
+    "text": "Geh heute zu Fuß statt mit dem Auto oder Bus",
+    "emoji": "🚶",
+    "xp": 25,
+    "category": "move",
+    "tip": "Zumindest eine Strecke die du normalerweise fährst."
+  },
+  {
+    "id": 22,
+    "text": "Hör heute bewusst einem anderen Menschen zu",
+    "emoji": "👂",
+    "xp": 20,
+    "category": "social",
+    "tip": "Handy weg, Augenkontakt, nicht unterbrechen."
+  },
+  {
+    "id": 23,
+    "text": "Mach heute etwas Kreatives – zeichnen, schreiben, basteln",
+    "emoji": "🎨",
+    "xp": 25,
+    "category": "focus",
+    "tip": "Kein Ergebnis nötig, kein Können nötig. Einfach machen."
+  },
+  {
+    "id": 24,
+    "text": "Steh heute 30 Minuten früher auf als sonst",
+    "emoji": "☀️",
+    "xp": 35,
+    "category": "health",
+    "tip": "Wecker stellen, Handy außer Reichweite."
+  },
+  {
+    "id": 25,
+    "text": "Sag heute jemandem danke – und meinst es auch so",
+    "emoji": "🙏",
+    "xp": 15,
+    "category": "social",
+    "tip": "Nicht 'danke' nebenbei – sondern wirklich gemeint."
   }
 ]
