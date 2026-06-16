@@ -1,5 +1,5 @@
-const CACHE = 'daily-quests-v3';
-const FILES = ['./', './index.html', './style.css', './app.js', './quests.json', './manifest.json', './icon-192.png', './icon-512.png', './favicon-32.png'];
+const CACHE = 'daily-quests-v4';
+const FILES = ['./', './index.html', './style.css', './app.js', './quests.json', './manifest.json', './icon-192.png', './icon-512.png', './favicon-32.png', './icon-192-maskable.png', './icon-512-maskable.png'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES)).then(() => self.skipWaiting()));

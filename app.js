@@ -7,6 +7,7 @@
 // ============================================================
 
 const XP_PER_LEVEL = 100;
+const DAILY_GOAL    = 5; // Anzahl Quests pro Tag für die Tages-Belohnung
 
 const MOTIVATIONS = [
   "Kleine Schritte führen zu großen Veränderungen.",
@@ -76,6 +77,8 @@ function loadState() {
     bestStreak:   s.bestStreak || 0,
     totalDone:    s.totalDone || 0,
     lastQuestId:  s.lastQuestId ?? null,
+    unlockedBadges: s.unlockedBadges || [],          // dauerhaft freigeschaltete Badges (Anzahl Tagesziele erreicht)
+    goalReachedToday: (s.date === today) ? (s.goalReachedToday || false) : false,
   };
 }
 
@@ -171,17 +174,26 @@ function completeCurrentQuest() {
 
   if ('vibrate' in navigator) navigator.vibrate([30, 20, 80]);
 
+  // Tagesziel erreicht? → Belohnung freischalten (einmal pro Tag)
+  let goalJustReached = false;
+  if (!state.goalReachedToday && state.doneTodayCount >= DAILY_GOAL) {
+    state.goalReachedToday = true;
+    state.unlockedBadges.push({ date: today, count: DAILY_GOAL });
+    goalJustReached = true;
+  }
+
   saveState();
   renderHeader();
   bumpTodayCount();
 
   // Konfetti bei jedem Abschluss (kleine Belohnung)
-  launchConfetti();
+  launchConfetti(false);
 
   // Nächste Quest nach kurzer Pause anzeigen
   setTimeout(() => {
     pickAndShowQuest(true);
     if (leveledUp) setTimeout(() => showLevelUp(state.level), 500);
+    if (goalJustReached) setTimeout(() => showDailyReward(), leveledUp ? 1400 : 500);
   }, 700);
 }
 
@@ -206,6 +218,14 @@ function renderHeader() {
   $('todayCount').textContent = state.doneTodayCount;
   $('bestStreakNum').textContent = state.bestStreak;
   $('totalDoneTxt').textContent  = `${state.totalDone} Aufgaben total erledigt`;
+  $('badgeCountTxt').textContent = `${state.unlockedBadges.length} Abzeichen gesammelt`;
+
+  // Fortschritt zum Tagesziel
+  const goalPct = Math.min(100, (state.doneTodayCount / DAILY_GOAL) * 100);
+  $('goalFill').style.width = goalPct + '%';
+  $('goalLabel').textContent = state.goalReachedToday
+    ? '🏆 Tagesziel erreicht!'
+    : `${state.doneTodayCount} / ${DAILY_GOAL} bis zur Tages-Belohnung`;
 }
 
 function bumpTodayCount() {
@@ -221,6 +241,7 @@ function setupButtons() {
   $('qDoneBtn').addEventListener('click', completeCurrentQuest);
   $('qSkipBtn').addEventListener('click', skipQuest);
   $('luBtn').addEventListener('click', () => $('levelup').classList.remove('show'));
+  $('rwBtn').addEventListener('click', () => $('dailyReward').classList.remove('show'));
 }
 
 // ── Level-Up ──────────────────────────────────────────────────
@@ -230,22 +251,37 @@ function showLevelUp(level) {
   if ('vibrate' in navigator) navigator.vibrate([100, 60, 100, 60, 200]);
 }
 
+// ── Tages-Belohnung (nach DAILY_GOAL Quests) ──────────────────
+function showDailyReward() {
+  const badgeIndex = state.unlockedBadges.length; // wie vielter Badge insgesamt
+  const badgeNames = ['Anfänger-Abzeichen', 'Fleißiges Bienchen', 'Tages-Champion', 'Unaufhaltsam', 'Quest-Legende'];
+  const badgeName  = badgeNames[Math.min(badgeIndex - 1, badgeNames.length - 1)] || 'Tages-Champion';
+
+  $('rwBadgeName').textContent = badgeName;
+  $('rwCount').textContent     = `${state.unlockedBadges.length}. Abzeichen freigeschaltet`;
+  $('dailyReward').classList.add('show');
+
+  if ('vibrate' in navigator) navigator.vibrate([120, 60, 120, 60, 120, 60, 250]);
+  launchConfetti(true); // große Konfetti-Version
+}
+
 // ── Konfetti ──────────────────────────────────────────────────
-function launchConfetti() {
+function launchConfetti(big) {
   const canvas = $('confetti');
   const ctx    = canvas.getContext('2d');
   canvas.width  = window.innerWidth;
   canvas.height = window.innerHeight;
 
+  const count  = big ? 200 : 80;
   const colors = ['#f59e0b','#f97316','#22c55e','#3b82f6','#a855f7','#ec4899','#fff'];
-  const pieces = Array.from({ length: 80 }, () => ({
-    x: canvas.width / 2 + (Math.random() - 0.5) * 100,
-    y: canvas.height * 0.35,
+  const pieces = Array.from({ length: count }, () => ({
+    x: big ? Math.random() * canvas.width : canvas.width / 2 + (Math.random() - 0.5) * 100,
+    y: big ? -20 - Math.random() * 60 : canvas.height * 0.35,
     w: 5 + Math.random() * 7,
     h: 8 + Math.random() * 10,
     color: colors[Math.floor(Math.random() * colors.length)],
-    vx: (Math.random() - 0.5) * 9,
-    vy: -6 - Math.random() * 5,
+    vx: (Math.random() - 0.5) * (big ? 6 : 9),
+    vy: big ? 2 + Math.random() * 3 : -6 - Math.random() * 5,
     rot: Math.random() * 360,
     vr: (Math.random() - 0.5) * 10,
     opacity: 1,
@@ -258,7 +294,7 @@ function launchConfetti() {
     pieces.forEach(p => {
       p.vy += gravity;
       p.x += p.vx; p.y += p.vy; p.rot += p.vr;
-      if (frame > 50) p.opacity -= 0.02;
+      if (frame > (big ? 130 : 50)) p.opacity -= 0.02;
       ctx.save();
       ctx.globalAlpha = Math.max(0, p.opacity);
       ctx.translate(p.x, p.y);
@@ -268,7 +304,7 @@ function launchConfetti() {
       ctx.restore();
     });
     frame++;
-    if (frame < 110) requestAnimationFrame(draw);
+    if (frame < (big ? 200 : 110)) requestAnimationFrame(draw);
     else ctx.clearRect(0, 0, canvas.width, canvas.height);
   }
   draw();

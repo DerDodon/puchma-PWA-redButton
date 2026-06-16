@@ -6,6 +6,7 @@
   <meta name="theme-color" content="#0a0a0a" />
   <meta name="description" content="Erledige eine Aufgabe nach der anderen und baue deinen Streak auf!" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Quests" />
   <link rel="apple-touch-icon" href="icon-192.png" />
@@ -78,6 +79,14 @@
     <span class="today-count" id="todayCount">0</span>
   </div>
 
+  <!-- Fortschritt zur Tages-Belohnung -->
+  <div class="goal-section">
+    <div class="goal-track">
+      <div class="goal-fill" id="goalFill" style="width:0%"></div>
+    </div>
+    <span class="goal-label" id="goalLabel">0 / 5 bis zur Tages-Belohnung</span>
+  </div>
+
   <!-- ══ AKTUELLE QUEST – die einzige Aufgabe, die man sieht ══ -->
   <main class="quest-stage" id="questStage" aria-label="Aktuelle Aufgabe">
 
@@ -108,6 +117,8 @@
 
   <footer class="footer">
     <span id="totalDoneTxt">0 Aufgaben total erledigt</span>
+    <span class="footer-dot">·</span>
+    <span id="badgeCountTxt">0 Abzeichen gesammelt</span>
   </footer>
 
 </div>
@@ -120,6 +131,18 @@
     <div class="lu-title">LEVEL UP</div>
     <div class="lu-level" id="luLevel">Level 2</div>
     <button class="lu-btn" id="luBtn" type="button">Weiter →</button>
+  </div>
+</div>
+
+<!-- TAGES-BELOHNUNG / BADGE FREISCHALTUNG -->
+<div class="reward-overlay" id="dailyReward">
+  <div class="reward-box">
+    <div class="rw-rays" aria-hidden="true"></div>
+    <div class="rw-badge-icon">🏆</div>
+    <div class="rw-title">Tagesziel erreicht!</div>
+    <div class="rw-badge-name" id="rwBadgeName">Tages-Champion</div>
+    <div class="rw-sub" id="rwCount">1. Abzeichen freigeschaltet</div>
+    <button class="rw-btn" id="rwBtn" type="button">Stark! →</button>
   </div>
 </div>
 
