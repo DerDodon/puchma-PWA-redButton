@@ -1,4 +1,4 @@
-const CACHE = 'daily-quests-v2';
+const CACHE = 'daily-quests-v3';
 const FILES = ['./', './index.html', './style.css', './app.js', './quests.json', './manifest.json', './icon-192.png', './icon-512.png', './favicon-32.png'];
 
 self.addEventListener('install', e => {

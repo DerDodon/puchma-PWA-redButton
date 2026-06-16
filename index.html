@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#0a0a0a" />
-  <meta name="description" content="Erledige täglich zufällige Aufgaben und baue deinen Streak auf!" />
+  <meta name="description" content="Erledige eine Aufgabe nach der anderen und baue deinen Streak auf!" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Quests" />
@@ -72,20 +72,33 @@
     <span class="motivation-quote" id="motivationQuote">Lade...</span>
   </div>
 
-  <div class="progress-row">
-    <span class="progress-label" id="progressTxt">0 / 5 heute erledigt</span>
-    <div class="progress-dots" id="progressDots"></div>
+  <!-- Heute-Zähler (wie viele schon erledigt) -->
+  <div class="today-row">
+    <span class="today-label">Heute erledigt</span>
+    <span class="today-count" id="todayCount">0</span>
   </div>
 
-  <main class="quest-list" id="questList" aria-label="Heutige Aufgaben"></main>
+  <!-- ══ AKTUELLE QUEST – die einzige Aufgabe, die man sieht ══ -->
+  <main class="quest-stage" id="questStage" aria-label="Aktuelle Aufgabe">
 
-  <div class="all-done" id="allDone">
-    <div class="all-done-inner">
-      <div class="all-done-emoji">🏆</div>
-      <div class="all-done-title">Alle erledigt!</div>
-      <div class="all-done-sub">Komm morgen für neue Quests wieder.</div>
+    <div class="quest-current" id="questCurrent">
+      <div class="quest-cat-tag" id="qCatTag">Health</div>
+      <div class="quest-current-emoji" id="qEmoji">💧</div>
+      <div class="quest-current-text" id="qText">Lade deine Aufgabe...</div>
+      <div class="quest-current-xp" id="qXp">+10 XP</div>
+
+      <div class="quest-tip" id="qTip">💡 Tipp hier</div>
+
+      <button class="quest-done-btn" id="qDoneBtn" type="button">
+        <span>✓ Erledigt!</span>
+      </button>
+
+      <button class="quest-skip-btn" id="qSkipBtn" type="button">
+        Andere Aufgabe →
+      </button>
     </div>
-  </div>
+
+  </main>
 
   <div class="best-streak-card">
     <span class="bs-label">Beste Streak</span>
@@ -97,20 +110,6 @@
     <span id="totalDoneTxt">0 Aufgaben total erledigt</span>
   </footer>
 
-</div>
-
-<!-- QUEST DETAIL MODAL -->
-<div class="modal-bg" id="modalBg">
-  <div class="modal" id="modal" role="dialog" aria-modal="true">
-    <div class="modal-emoji" id="modalEmoji">🎯</div>
-    <div class="modal-title" id="modalTitle">Aufgabe</div>
-    <div class="modal-tip" id="modalTip">Tipp hier</div>
-    <div class="modal-xp" id="modalXp">+10 XP</div>
-    <div class="modal-btns">
-      <button class="modal-btn-done" id="modalBtnDone" type="button">✓ Erledigt!</button>
-      <button class="modal-btn-close" id="modalBtnClose" type="button">Später</button>
-    </div>
-  </div>
 </div>
 
 <!-- LEVEL UP -->
